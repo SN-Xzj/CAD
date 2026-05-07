@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>中望CAD三维设计 · 零基础实战招生简章 | 三宁职校</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #eef2f5;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, 'Noto Sans', sans-serif;
+            padding: 20px 16px 48px;
+            color: #1e2a3e;
+        }
+
+        /* 主卡片容器 */
+        .enroll-card {
+            max-width: 550px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 36px;
+            overflow: hidden;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s ease;
+        }
+
+        /* 头部品牌区 */
+        .hero {
+            background: linear-gradient(135deg, #0B2B40 0%, #1C4E6E 100%);
+            padding: 32px 24px 28px;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-badge {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(4px);
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+        }
+
+        .hero-sub {
+            font-size: 16px;
+            opacity: 0.85;
+            margin-bottom: 28px;
+        }
+
+        .hero-tag {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .hero-tag span {
+            background: rgba(255,255,255,0.15);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* 核心卖点卡片 */
+        .highlight {
+            background: #F9FBFD;
+            padding: 24px 20px;
+            border-bottom: 1px solid #e9edf2;
+        }
+
+        .highlight-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .highlight-item {
+            flex: 1;
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .highlight-number {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1C4E6E;
+            background: #E6F0F5;
+            width: 56px;
+            height: 56px;
+            line-height: 56px;
+            text-align: center;
+            border-radius: 60px;
+            margin: 0 auto 10px;
+        }
+
+        .highlight-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2c3e4e;
+        }
+
+        .highlight-desc {
+            font-size: 12px;
+            color: #5f7f95;
+            margin-top: 4px;
+        }
+
+        /* 课程适合人群 */
+        .audience {
+            padding: 24px 20px;
+            background: white;
+            border-bottom: 1px solid #edeff2;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #0b2b3f;
+        }
+
+        .section-title:before {
+            content: "▍";
+            font-size: 24px;
+            color: #1C6E8F;
+        }
+
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: #F0F4F8;
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #1e4663;
+        }
+
+        /* 课程大纲预览 (折叠/展开) */
+        .syllabus {
+            background: white;
+            border-bottom: 1px solid #edeff2;
+            padding: 24px 20px;
+        }
+
+        .outline-preview {
+            background: #F8FAFE;
+            border-radius: 24px;
+            margin-top: 12px;
+            padding: 16px;
+        }
+
+        .outline-stage {
+            margin-bottom: 18px;
+        }
+
+        .stage-title {
+            font-weight: 700;
+            font-size: 16px;
+            color: #1C4E6E;
+            border-left: 4px solid #1C4E6E;
+            padding-left: 12px;
+            margin-bottom: 10px;
+        }
+
+        .stage-points {
+            font-size: 14px;
+            color: #2c3e4e;
+            line-height: 1.45;
+            padding-left: 16px;
+            list-style: none;
+        }
+
+        .stage-points li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .stage-points li:before {
+            content: "•";
+            color: #3d8fbf;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .expand-more {
+            text-align: center;
+            margin-top: 12px;
+            color: #1C6E8F;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-block;
+            width: 100%;
+            background: #EFF3F8;
+            padding: 10px;
+            border-radius: 40px;
+        }
+
+        /* 完整大纲折叠区域 */
+        .full-syllabus {
+            display: none;
+            margin-top: 20px;
+            background: #ffffff;
+            border-radius: 24px;
+            border: 1px solid #e2e9f0;
+            padding: 18px 16px;
+        }
+
+        .full-syllabus.show {
+            display: block;
+        }
+
+        .class-hour-detail {
+            font-size: 13px;
+            color: #3c6e8f;
+            margin-top: 12px;
+            background: #F2F6F9;
+            padding: 12px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        /* 学习收益区 */
+        .benefits {
+            padding: 24px 20px;
+            background: white;
+            border-bottom: 1px solid #edeff2;
+        }
+
+        .benefit-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #F6F9FE;
+            padding: 12px 16px;
+            border-radius: 20px;
+        }
+
+        .benefit-icon {
+            background: #1C4E6E20;
+            width: 36px;
+            height: 36px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        /* 师资/特色 */
+        .feature {
+            padding: 24px 20px;
+            background: white;
+            border-bottom: 1px solid #edeff2;
+        }
+
+        .feature-text {
+            background: #FEF7E6;
+            padding: 16px;
+            border-radius: 24px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #926d17;
+        }
+
+        /* 报名信息 + 按钮 */
+        .register {
+            padding: 28px 20px 32px;
+            background: white;
+            text-align: center;
+        }
+
+        .price-block {
+            background: #F1F9FF;
+            border-radius: 28px;
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+
+        .price {
+            font-size: 32px;
+            font-weight: 800;
+            color: #cf6422;
+        }
+
+        .btn-register {
+            background: linear-gradient(95deg, #1C5A7A, #0F3F58);
+            border: none;
+            padding: 16px 20px;
+            width: 100%;
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            border-radius: 60px;
+            cursor: pointer;
+            box-shadow: 0 8px 18px rgba(0,40,60,0.2);
+            transition: transform 0.1s ease;
+            margin-bottom: 18px;
+        }
+
+        .btn-register:active {
+            transform: scale(0.97);
+        }
+
+        .contact-info {
+            font-size: 13px;
+            color: #6b8aa3;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+            margin-top: 8px;
+        }
+
+        .footer {
+            padding: 20px 24px 24px;
+            background: #F8FAFD;
+            text-align: center;
+            font-size: 13px;
+            color: #5f7f97;
+            border-top: 1px solid #e6ecf2;
+        }
+
+        /* 手机交互优化 */
+        button {
+            background: none;
+            border: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+<div class="enroll-card">
+    <!-- 头部 -->
+    <div class="hero">
+        <div class="hero-badge">🔥 零基础 · 企业级实训课程</div>
+        <h1>中望CAD三维设计<br>从入门到实战</h1>
+        <div class="hero-sub">40课时 · 手把手打造CAD设计尖兵</div>
+        <div class="hero-tag">
+            <span>🎯 实体建模</span>
+            <span>🌀 曲面进阶</span>
+            <span>⚙️ 装配动画</span>
+            <span>📐 三维转工程图</span>
+        </div>
+    </div>
+
+    <!-- 数据亮点 -->
+    <div class="highlight">
+        <div class="highlight-grid">
+            <div class="highlight-item">
+                <div class="highlight-number">40</div>
+                <div class="highlight-label">系统课时</div>
+                <div class="highlight-desc">理论+实操＞60%</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-number">5</div>
+                <div class="highlight-label">大教学阶段</div>
+                <div class="highlight-desc">草图→实体→曲面→装配→出图</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-number">1</div>
+                <div class="highlight-label">综合产教项目</div>
+                <div class="highlight-desc">结业独立完成工程图+A级动画</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 学习人群 -->
+    <div class="audience">
+        <div class="section-title">适合谁学</div>
+        <div class="tag-group">
+            <span class="tag">🤖 机械/工业设计学生</span>
+            <span class="tag">📌 零基础转行从业者</span>
+            <span class="tag">🏭 工艺/结构工程师</span>
+            <span class="tag">📐 需要三维出图的钳工</span>
+        </div>
+    </div>
+
+    <!-- 课程大纲 (核心展示折叠增强) -->
+    <div class="syllabus">
+        <div class="section-title">课程体系 · 四大核心模块</div>
+        <div class="outline-preview">
+            <div class="outline-stage">
+                <div class="stage-title">阶段1 · 软件与草图绘制 (10课时)</div>
+                <ul class="stage-points">
+                    <li>界面环境 + 动态坐标系 + 精准绘图</li>
+                    <li>图层/文字/标注规范 + 法兰盘平面图案例</li>
+                    <li>阶段考核：底座零件三视图</li>
+                </ul>
+            </div>
+            <div class="outline-stage">
+                <div class="stage-title">阶段2 · 实体建模 & 曲面造型 (12课时)</div>
+                <ul class="stage-points">
+                    <li>动态UCS建模、布尔运算、拉伸/扫掠/放样</li>
+                    <li>高级特征：抽壳/三维阵列/倒角</li>
+                    <li>曲面拉伸缝合 + 复杂组合体 (轴承座/减速器箱盖)</li>
+                </ul>
+            </div>
+            <div class="outline-stage">
+                <div class="stage-title">阶段3 · 装配动画 (6课时)</div>
+                <ul class="stage-points">
+                    <li>装配约束与爆炸视图</li>
+                    <li>时间轴动画 + 摄像机视角输出AVI</li>
+                    <li>实战：台虎钳/齿轮泵装配动画</li>
+                </ul>
+            </div>
+            <div class="outline-stage">
+                <div class="stage-title">阶段4 · 三维转工程图 (8课时)</div>
+                <ul class="stage-points">
+                    <li>布局空间+标准三视图/全剖半剖视</li>
+                    <li>机械标注/BOM表/标题栏模板</li>
+                    <li>批量打印PDF图纸，全套零件图输出</li>
+                </ul>
+            </div>
+            <div class="class-hour-detail">
+                ⚡ 另含4课时综合实训+行业案例及结业考核
+            </div>
+            <div id="expandBtn" class="expand-more">📖 展开完整40课详细大纲 ▼</div>
+        </div>
+
+        <!-- 完整折叠大纲 (详细课时表) -->
+        <div id="fullSyllabus" class="full-syllabus">
+            <div style="font-size:14px; font-weight:600; margin-bottom:12px;">📚 详细课时安排（40课时）</div>
+            <div class="outline-stage">
+                <div class="stage-title">🎨 第一阶段：软件初识与二维草图绘制（10课时）</div>
+                <ul class="stage-points">
+                    <li>第1-2课：界面布局，鼠标控制，动态坐标/单位设置</li>
+                    <li>第3-5课：直线/圆/多段线，对象捕捉+偏移/镜像/阵列</li>
+                    <li>第6-8课：修剪/延伸/倒角圆角，图层/线型管理</li>
+                    <li>第9-10课：文字样式及尺寸标注，完成底座零件三视图考核</li>
+                </ul>
+            </div>
+            <div class="outline-stage">
+                <div class="stage-title">🧊 第二阶段：三维实体建模+曲面初探（12课时）</div>
+                <ul class="stage-points">
+                    <li>第11-13课：三维视图/UCS动态建模，基本实体+布尔运算</li>
+                    <li>第14-16课：拉伸/放样/旋转/扫掠，三维阵列镜像，抽壳与圆角</li>
+                    <li>第17-19课：轴承座完整建模，肋板细节及孔特征</li>
+                    <li>第20-22课：曲面拉伸/网格曲面，曲面修剪缝合，完成叶轮/减速器箱盖大作业</li>
+                </ul>
+            </div>
+            <div class="outline-stage">
+                <div class="stage-title">🔧 第三阶段：装配爆炸与动画输出（6课时）</div>
+                <ul class="stage-points">
+                    <li>第23-24课：装配约束（重合/对齐/相切），爆炸视图制作</li>
+                    <li>第25-26课：时间轴动画设置，导出装配AVI视频</li>
+                    <li>第27-28课：截止阀/台虎钳装配实战，装配动画阶段考核</li>
+                </ul>
+            </div>
+            <div class="outline-stage">
+                <div class="stage-title">📄 第四阶段：三维转二维工程图（8课时）</div>
+                <ul class="stage-points">
+                    <li>第29-31课：模型/布局空间，标准三视图，全剖/半剖视图</li>
+                    <li>第32-34课：轴测图，公差/尺寸标注，标题栏与明细表</li>
+                    <li>第35-36课：图纸集批量打印，输出全套零件图及装配图</li>
+                </ul>
+            </div>
+            <div class="outline-stage">
+                <div class="stage-title">🏆 第五阶段：综合实训+行业案例+结业（4课时）</div>
+                <ul class="stage-points">
+                    <li>第37课：机械行业案例（连杆/夹具全套出图）</li>
+                    <li>第38课：建筑三维墙体及平面图布局输出</li>
+                    <li>第39课：参数化设计/快捷键自定义/性能优化</li>
+                    <li>第40课：结业大考——二级减速器全流程（三维+装配动画+PDF工程图）</li>
+                </ul>
+            </div>
+            <div class="class-hour-detail" style="margin-top: 10px;">
+                ✅ 每课时45分钟，工业级项目驱动，覆盖中望CAD机械版特色功能
+            </div>
+        </div>
+    </div>
+
+    <!-- 学习收益 -->
+    <div class="benefits">
+        <div class="section-title">🎯 你能收获</div>
+        <div class="benefit-list">
+            <div class="benefit-item"><span class="benefit-icon">⚡</span> 独立完成复杂机械产品三维建模及装配动画</div>
+            <div class="benefit-item"><span class="benefit-icon">📑</span> 熟练将三维模型转为符合国标的工程图（PDF出图）</div>
+            <div class="benefit-item"><span class="benefit-icon">🛠️</span> 掌握中望CAD动态UCS及曲面建模核心技巧</div>
+            <div class="benefit-item"><span class="benefit-icon">🏭</span> 具备机械/工业设计岗位的上机实操应试能力</div>
+        </div>
+    </div>
+
+    <!-- 教学特色 -->
+    <div class="feature">
+        <div class="section-title">✨ 教学优势</div>
+        <div class="feature-text">
+            🔹 零基础直达就业级技能，小班制+双师辅导<br>
+            🔹 采用中望CAD机械版，内置零件库及标注工具，高效出图<br>
+            🔹 全真项目案例（减速器/齿轮泵/轴承座）真实工业设计流程<br>
+            🔹 每阶段均有考核，结业颁发《结业证》
+        </div>
+    </div>
+
+    <!-- 报名板块 -->
+    <div class="register">
+        <div class="price-block">
+            <span style="font-size: 15px; font-weight:500;">首期限时特惠</span><br>
+            <span class="price">¥ 1000</span>
+            <span style="font-size: 14px;"> / 全课程包</span>
+            <div style="font-size:13px; margin-top:6px;">含教材、配套练习文件、工程师交流群</div>
+        </div>
+        <button class="btn-register" id="registerBtn">📝 立即抢占名额</button>
+        <div class="contact-info">
+            📞 咨询电话：许老师 15071760641
+             📍  培训地点：枝江三宁职业技术学校
+            ⏰ 开课时间：滚动开班，小班教学（满20人即开）
+        </div>
+    </div>
+
+    <!-- 落款教研室 -->
+    <div class="footer">
+        三宁职校工业自动化教研室 出品<br>
+        匠心育人 · 赋能智造 · 从零基础到工程师
+    </div>
+</div>
+
+<script>
+    // 展开详细大纲控制
+    const expandBtn = document.getElementById('expandBtn');
+    const fullSyllabusDiv = document.getElementById('fullSyllabus');
+    let expanded = false;
+    expandBtn.addEventListener('click', function() {
+        if (!expanded) {
+            fullSyllabusDiv.classList.add('show');
+            expandBtn.innerHTML = '📖 收起完整大纲 ▲';
+            expanded = true;
+        } else {
+            fullSyllabusDiv.classList.remove('show');
+            expandBtn.innerHTML = '📖 展开完整40课详细大纲 ▼';
+            expanded = false;
+        }
+    });
+
+    // 报名按钮轻提示（模拟咨询）
+    const registerBtn = document.getElementById('registerBtn');
+    if(registerBtn) {
+        registerBtn.addEventListener('click', function() {
+            // 优雅的提醒，真实场景可跳转表单或拨打电话
+            alert('📢 感谢报读三宁职校！\n招生老师将尽快与您联系，预留名额。\n咨询热线：15071760641（工作时间）');
+            // 可选模拟跳转链接: window.location.href = "tel:15071760641";
+        });
+    }
+
+    // 增加动态细节: 小规模滚动反馈
+    const allTags = document.querySelectorAll('.tag, .benefit-item, .btn-register');
+    // 手机触感轻微反馈
+    registerBtn.addEventListener('touchstart', function(e) {
+        // just for feedback, keep
+    });
+</script>
+</body>
+</html>
